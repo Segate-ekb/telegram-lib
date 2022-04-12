@@ -12,6 +12,7 @@ def call(String message) {
         "text": "```
         Hello world!
         2 string#!@#$%^&```"}''',
-          url: urlString
+          url: urlString, 
+          validResponseCodes: '100:999'
         echo response
     }
