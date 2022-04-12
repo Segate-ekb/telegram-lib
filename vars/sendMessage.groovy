@@ -1,21 +1,17 @@
 #!/usr/bin/env groovy
-
-def call(String message) {
-        if (message.trim().length() == 0) {
-            throw new Exception('Message is empty!')
+def call(message, authToken = null) {
+        if (authToken == null) {
+          authToken = env.TELEGRAM_TOKEN
         }
-        String authToken = '1145915027:AAHEtQJGSTERyttKvXXQxd4Li1ax6aMNj-U'
+
         String urlString = "https://api.telegram.org/bot${authToken}/sendMessage"
 
-        def response = httpRequest httpMode: 'POST', 
-        contentType: 'APPLICATION_JSON',
-        requestBody: '''{"chat_id": 436258240,
-        "parse_mode": "MarkdownV2",
-        "text": "```
-        Hello world!
-        2 string#!@#$%^&```"}''',
-        url: urlString, 
-        validResponseCodes: '100:999'
+        def response = httpRequest 
+                        httpMode: 'POST',
+                        contentType: 'APPLICATION_JSON',
+                        requestBody: JsonOutput.toJson(message),
+                        url: urlString,
+                        validResponseCodes: '100:999'
         println('Status: '+response.status)
         println('Response: '+response.content)
     }
