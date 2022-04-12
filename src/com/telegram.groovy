@@ -7,21 +7,21 @@ class telegram {
     String parseMode
 
     def setAuthToken(String authToken) {
-        if (${ authToken }.trim().length() == 0) {
+        if (authToken.trim().length() == 0) {
             throw new Exception("can't set auth token")
         }
-        this.authToken = ${ authToken }
+        this.authToken = authToken
     }
 
     def setChatId(String chatId) {
-        if (${ chatId }.trim().length() == 0) {
+        if (chatId.trim().length() == 0) {
             throw new Exception("can't set chatId")
         }
-        this.chatId = ${ chatId }
+        this.chatId = chatId
     }
 
     def sendMessage(String message) {
-        if (${ message }.trim().length() == 0) {
+        if (message.trim().length() == 0) {
             throw new Exception('Message is empty!')
         }
         String urlString = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s'
