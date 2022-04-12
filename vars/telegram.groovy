@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-class telegram {
+class telegram_q {
 
     String authToken
     String chatId
