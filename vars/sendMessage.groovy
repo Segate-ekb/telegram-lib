@@ -2,6 +2,7 @@
 import groovy.json.*
 import ru.telegramNotify.ioc.ContextRegistry
 import ru.telegramNotify.botManager
+import ru.telegramNotify.message
 
 def call(String text, int chat_id = "", String parse_mode = "") {
        ContextRegistry.registerDefaultContext(this)
