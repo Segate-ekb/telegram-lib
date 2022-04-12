@@ -14,7 +14,7 @@ class botManager {
           contentType: 'APPLICATION_JSON',
           requestBody: requestBody,
           url: urlString,
-          validResponseCodes: '100:999'
+          validResponseCodes: '100:999')
     }
     def setAuthToken (String authToken = ""){
         if (authToken.trim().length() == 0){
