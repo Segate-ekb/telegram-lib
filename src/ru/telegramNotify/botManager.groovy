@@ -17,7 +17,7 @@ class botManager {
     }
     def setAuthToken (String authToken = ""){
         if (authToken.trim().length() == 0){
-            this.authToken = env.TELEGRAM_TOKEN
+            this.authToken = script.env.TELEGRAM_TOKEN
         }
         else{
             this.authToken = authToken
