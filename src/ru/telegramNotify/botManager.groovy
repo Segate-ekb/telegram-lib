@@ -15,7 +15,7 @@ class botManager {
           url: urlString,
           validResponseCodes: '100:999'
     }
-    def setAuthToken (string authToken = ""){
+    def setAuthToken (S.tring authToken = ""){
         if (authToken.trim().length() == 0){
             this.authToken = env.TELEGRAM_TOKEN
         }
