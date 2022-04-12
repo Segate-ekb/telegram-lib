@@ -33,7 +33,7 @@ class StepExecutor implements IStepExecutor {
     }
 
     @Override
-    def httpRequest(String url, String outputFile, String responseHandle = 'NONE', boolean wrapAsMultipart = false, contentType = 'APPLICATION_JSON', requestBody = "", validResponseCodes = '100:999', httpMode = 'POST') {
+    def httpRequest(String httpMode = 'POST', String url, String outputFile, String responseHandle = 'NONE', boolean wrapAsMultipart = false, String contentType = 'APPLICATION_JSON', String requestBody = "", String validResponseCodes = '100:999') {
         steps.httpRequest responseHandle: responseHandle,
          outputFile: outputFile,
           url: url,
