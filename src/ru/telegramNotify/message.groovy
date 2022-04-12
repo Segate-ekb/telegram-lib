@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-package com
+package ru.telegramNotify
 
 class message {
     int chat_id
