@@ -1,6 +1,6 @@
 package ru.telegramNotify.ioc
 
-importru.telegramNotify.IStepExecutor
+import ru.telegramNotify.IStepExecutor
 import ru.telegramNotify.StepExecutor
 
 class DefaultContext implements IContext, Serializable {
