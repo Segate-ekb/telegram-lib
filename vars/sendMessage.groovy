@@ -1,11 +1,13 @@
 #!/usr/bin/env groovy
+import groovy.json.*
+
 def call(message, authToken = null) {
         if (authToken == null) {
           authToken = env.TELEGRAM_TOKEN
         }
 
         String urlString = "https://api.telegram.org/bot${authToken}/sendMessage"
-        def requestBody =JsonOutput.toJson(message)
+        def requestBody = JsonOutput.toJson(message)
         println('body: '+requestBody)
         def response = httpRequest httpMode: 'POST',
                         contentType: 'APPLICATION_JSON',
