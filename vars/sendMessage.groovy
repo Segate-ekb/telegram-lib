@@ -12,7 +12,6 @@ def call(String message) {
         "text": "```
         Hello world!
         2 string#!@#$%^&```"}''',
-         responseHandle: 'NONE',
-          url: urlString, wrapAsMultipart: false
+          url: urlString
         echo response
     }
