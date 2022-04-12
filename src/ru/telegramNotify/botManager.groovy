@@ -10,6 +10,7 @@ class botManager {
     def sendMessage(message) {
         String urlString = "https://api.telegram.org/bot${this.authToken}/sendMessage"
         def requestBody = JsonOutput.toJson(message)
+        IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
         steps.httpRequest (httpMode: 'POST',
           contentType: 'APPLICATION_JSON',
           requestBody: requestBody,
