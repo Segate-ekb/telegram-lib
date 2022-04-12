@@ -2,6 +2,8 @@
 package ru.telegramNotify
 import groovy.json.*
 import ru.telegramNotify.message
+import org.jenkinsci.plugins.pipeline.utility.steps.fs.FileWrapper
+import org.jenkinsci.plugins.workflow.support.actions.EnvironmentAction
 
 class botManager {
     private String authToken
@@ -9,7 +11,7 @@ class botManager {
     def sendMessage(message) {
         String urlString = "https://api.telegram.org/bot${this.authToken}/sendMessage"
         def requestBody = JsonOutput.toJson(message)
-        script.httpRequest httpMode: 'POST',
+        httpRequest httpMode: 'POST',
           contentType: 'APPLICATION_JSON',
           requestBody: requestBody,
           url: urlString,
@@ -17,7 +19,7 @@ class botManager {
     }
     def setAuthToken (String authToken = ""){
         if (authToken.trim().length() == 0){
-            this.authToken = script.env.TELEGRAM_TOKEN
+         //   this.authToken = script.env.TELEGRAM_TOKEN
         }
         else{
             this.authToken = authToken
