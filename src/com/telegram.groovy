@@ -2,10 +2,8 @@
 package com
 
 class telegram {
-    String authToken
-    String chatId
-    String parseMode
-
+    Private String authToken, chatId, parseMode == "MarkdownV2"
+   
     def setAuthToken(String authToken) {
         if (authToken.trim().length() == 0) {
             throw new Exception("can't set auth token")
@@ -20,24 +18,26 @@ class telegram {
         this.chatId = chatId
     }
 
+    def setParseMode(def parseMode){
+        if (parseMode.trim().length() == 0) {
+            throw new Exception("can't set parseMode")
+        }
+        this.parseMode = parseMode
+    }
+
     def sendMessage(String message) {
         if (message.trim().length() == 0) {
             throw new Exception('Message is empty!')
         }
-        String urlString = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s'
-        urlString = String.format(urlString, authToken, chatId, message)
+        String urlString = "https://api.telegram.org/bot${authToken}}/sendMessage"
 
-        URL url = new URL(urlString)
-        URLConnection conn = url.openConnection()
-
-        StringBuilder sb = new StringBuilder()
-        InputStream is = new BufferedInputStream(conn.getInputStream())
-        BufferedReader br = new BufferedReader(new InputStreamReader(is))
-        String inputLine = ''
-        while ((inputLine = br.readLine()) != null) {
-            sb.append(inputLine)
-        }
-        String response = sb.toString()
+        httpRequest httpMode: 'POST', requestBody: '''{"chat_id": 436258240,
+        "parse_mode": "MarkdownV2",
+        "text": "```
+        Hello world!
+        2 string#!@#$%^&```"}''',
+         responseHandle: 'NONE',
+          url: urlString, wrapAsMultipart: false
         echo response
     }
 
