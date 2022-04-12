@@ -5,11 +5,11 @@ def call(message, authToken = null) {
         }
 
         String urlString = "https://api.telegram.org/bot${authToken}/sendMessage"
-
-        def response = httpRequest 
-                        httpMode: 'POST',
+        def requestBody =JsonOutput.toJson(message)
+        println('body: '+requestBody)
+        def response = httpRequest httpMode: 'POST',
                         contentType: 'APPLICATION_JSON',
-                        requestBody: JsonOutput.toJson(message),
+                        requestBody: requestBody,
                         url: urlString,
                         validResponseCodes: '100:999'
         println('Status: '+response.status)
