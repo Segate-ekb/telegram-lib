@@ -7,12 +7,15 @@ def call(String message) {
         String authToken = '1145915027:AAHEtQJGSTERyttKvXXQxd4Li1ax6aMNj-U'
         String urlString = "https://api.telegram.org/bot${authToken}/sendMessage"
 
-        def response = httpRequest httpMode: 'POST', requestBody: '''{"chat_id": 436258240,
+        def response = httpRequest httpMode: 'POST', 
+        contentType: 'APPLICATION_JSON',
+        requestBody: '''{"chat_id": 436258240,
         "parse_mode": "MarkdownV2",
         "text": "```
         Hello world!
         2 string#!@#$%^&```"}''',
-          url: urlString, 
-          validResponseCodes: '100:999'
-        echo response
+        url: urlString, 
+        validResponseCodes: '100:999'
+        println('Status: '+response.status)
+        println('Response: '+response.content)
     }
