@@ -41,5 +41,6 @@ class StepExecutor implements IStepExecutor {
             httpMode: httpMode,
              contentType: contentType,
               requestBody: requestBody,
-               validResponseCodes: validResponseCodes}
+               validResponseCodes: validResponseCodes
+    }
 }

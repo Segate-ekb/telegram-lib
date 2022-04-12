@@ -1,16 +1,10 @@
 #!/usr/bin/env groovy
 import groovy.json.*
+import ru.telegramNotify.ioc.ContextRegistry
 
 def call(message, authToken = null) {
-        if (authToken == null) {
-          authToken = env.TELEGRAM_TOKEN
-        }
-
-        String urlString = "https://api.telegram.org/bot${authToken}/sendMessage"
-        def requestBody = JsonOutput.toJson(message)
-        httpRequest httpMode: 'POST',
-          contentType: 'APPLICATION_JSON',
-          requestBody: requestBody,
-          url: urlString,
-          validResponseCodes: '100:999'
+         ContextRegistry.registerDefaultContext(this)
+         def telegram = new botManager()
+          telegram.setAuthToken('1145915027:AAHEtQJGSTERyttKvXXQxd4Li1ax6aMNj-U')
+          telegram.sendMessage(message)
     }
