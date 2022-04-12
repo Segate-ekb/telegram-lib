@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-package telegram
+package com.telegram
 
 class telegram {
 
