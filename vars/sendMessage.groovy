@@ -6,6 +6,6 @@ import ru.telegramNotify.botManager
 def call(message) {
          ContextRegistry.registerDefaultContext(this)
          def telegram = new botManager()
-          telegram.setAuthToken('1145915027:AAHEtQJGSTERyttKvXXQxd4Li1ax6aMNj-U')
+          telegram.setAuthToken(env.TELEGRAM_TOKEN)
           telegram.sendMessage(message)
     }
