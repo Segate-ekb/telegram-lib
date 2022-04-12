@@ -2,7 +2,7 @@
 package com
 
 class telegram {
-    Private String authToken, chatId, parseMode == "MarkdownV2"
+    String authToken, chatId, parseMode = "MarkdownV2"
    
     def setAuthToken(String authToken) {
         if (authToken.trim().length() == 0) {
