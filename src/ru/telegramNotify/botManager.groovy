@@ -3,7 +3,7 @@ package ru.telegramNotify
 import groovy.json.*
 import ru.telegramNotify.message
 import ru.telegramNotify.IStepExecutor
-
+import ru.telegramNotify.ContextRegistry
 class botManager {
     private String authToken
 
