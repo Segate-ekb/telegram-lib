@@ -1,4 +1,4 @@
-package ru.telegramNotify
+package ru.telegramNotify.ioc
 
 class ContextRegistry implements Serializable {
     private static IContext context
