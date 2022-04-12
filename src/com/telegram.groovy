@@ -2,7 +2,6 @@
 package com
 
 class telegram {
-
     String authToken
     String chatId
     String parseMode
