@@ -11,5 +11,5 @@ interface IStepExecutor {
 
     def withEnv(List<String> strings, Closure body)
 
-    def httpRequest(String httpMode, String url, String outputFile, String responseHandle, boolean wrapAsMultipart, String contentType, String requestBody, String validResponseCodes)
+    def httpRequest(String httpMode, String url, String requestBody, String outputFile, String responseHandle, boolean wrapAsMultipart, String contentType, String validResponseCodes)
 }
