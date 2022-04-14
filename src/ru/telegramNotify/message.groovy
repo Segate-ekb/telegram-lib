@@ -5,7 +5,7 @@ import groovy.json.*
 
 class message {
     String text
-    int chat_id
+    long chat_id
     String parse_mode = "MarkdownV2"
     Boolean disable_web_page_preview
     Boolean disable_notification
