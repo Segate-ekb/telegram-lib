@@ -2,6 +2,8 @@
 package ru.telegramNotify
 
 import groovy.json.*
+import groovy.json.JsonGenerator
+import groovy.json.JsonGenerator.Converter
 
 class message {
     String text
@@ -12,10 +14,10 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-       def generator = JsonGenerator.Options()
-                         .disableUnicodeEscaping()
-                         .build()
-
-     return JsonOutput.prettyPrint(generator.toJson(this))
+     def jsonGen = new JsonGenerator.Options()
+        .disableUnicodeEscaping()  // Do not escape UNICODE.
+        .build()
+          return jsonGen.toJson(data)
+     //return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
