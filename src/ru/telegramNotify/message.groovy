@@ -13,7 +13,8 @@ class message {
 
     def serializeMessage(){
         StringEscapeUtils.unescapeJavaScript(
-            return JsonOutput.prettyPrint(JsonOutput.toJson(this))
+            def json =  JsonOutput.prettyPrint(JsonOutput.toJson(this))
         )
+        return json
     }
 }
