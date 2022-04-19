@@ -12,9 +12,6 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-        //return StringEscapeUtils.unescapeJavaScript(
-       //     JsonOutput.prettyPrint(JsonOutput.toJson(this))
-       // )
 return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
