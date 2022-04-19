@@ -12,8 +12,11 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-        def json = JsonOutput.toJson(this)
-        json = json.getBytes("UTF-8")
+       def json = new JsonGenerator.Options()
+        .disableUnicodeEscaping()
+        .build()
+        .toJson(this)
+        //def json = JsonOutput.toJson(this)
         json = JsonOutput.prettyPrint(json)
         return json
     }
