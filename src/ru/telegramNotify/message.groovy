@@ -2,7 +2,6 @@
 package ru.telegramNotify
 
 import groovy.json.*
-import java.lang.charset.*
 
 class message {
     String text
@@ -13,8 +12,6 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-        byte[] bytes = JsonOutput.prettyPrint(JsonOutput.toJson(this)).getBytes(StandardCharsets.UTF_8);
-
-     return new String(bytes, StandardCharsets.UTF_8);
+     return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
