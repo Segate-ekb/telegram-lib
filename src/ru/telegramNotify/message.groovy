@@ -13,7 +13,12 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){        
-      echo JsonGenerator.toJson(this)
+      def generator = new groovy.json.JsonGenerator.Options()
+                         .excludeNulls()
+                         .dateFormat('yyyy')
+                         .excludeFieldsByName('bar', 'baz')
+                         .excludeFieldsByType(java.sql.Date)
+                         .build()
      return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
