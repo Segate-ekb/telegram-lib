@@ -13,6 +13,10 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-     return Charset.forName("UTF-8").encode(JsonOutput.prettyPrint(JsonOutput.toJson(this)))
+        import groovy.json.JsonGenerator
+        import groovy.json.JsonGenerator.Converter
+
+        
+     return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
