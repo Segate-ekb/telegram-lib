@@ -13,6 +13,6 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-     return JsonOutput.prettyPrint(JsonOutput.toJson(this, "UTF-8"))
+     return StandardCharsets.UTF_8.encode(JsonOutput.prettyPrint(JsonOutput.toJson(this)))
     }
 }
