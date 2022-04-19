@@ -2,7 +2,7 @@
 package ru.telegramNotify
 
 import groovy.json.*
-
+import java.lang.charset.*
 
 class message {
     String text
