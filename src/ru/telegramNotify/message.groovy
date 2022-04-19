@@ -12,6 +12,8 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-        return JsonOutput.toJson(this)
+        def json = JsonOutput.toJson(this)
+        json = JsonOutput.prettyPrint(json)
+        return json
     }
 }
