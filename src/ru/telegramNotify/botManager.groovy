@@ -10,7 +10,6 @@ class botManager {
 
     def sendMessage(requestBody) {
         String urlString = getUrl()
-        println requestBody
         IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
         steps.httpRequest ('POST', urlString,requestBody)
     }
