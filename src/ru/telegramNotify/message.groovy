@@ -12,13 +12,9 @@ class message {
     Boolean disable_notification
     int reply_to_message_id
 
-    def serializeMessage(){        
-      def generator = new groovy.json.JsonGenerator.Options()
-                         .excludeNulls()
-                         .dateFormat('yyyy')
-                         .excludeFieldsByName('bar', 'baz')
-                         .excludeFieldsByType(java.sql.Date)
-                         .build()
-     return JsonOutput.prettyPrint(JsonOutput.toJson(this))
+    def serializeMessage(){
+        byte[] bytes = JsonOutput.prettyPrint(JsonOutput.toJson(this)).getBytes(StandardCharsets.UTF_8);
+
+     return new String(bytes, StandardCharsets.UTF_8);
     }
 }
