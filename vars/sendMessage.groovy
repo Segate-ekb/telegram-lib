@@ -13,5 +13,7 @@ def call(String text, long chat_id = Long.valueOf(env.TELEGRAM_CHAT), String par
 
       def telegram = new botManager()
       telegram.setAuthToken(env.TELEGRAM_TOKEN)
-      telegram.sendMessage(message.serializeMessage())
+      requestBody = message.serializeMessage()
+      echo requestBody
+      telegram.sendMessage(requestBody)
     }
