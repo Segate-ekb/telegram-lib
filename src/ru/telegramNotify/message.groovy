@@ -12,7 +12,7 @@ class message {
     int reply_to_message_id
 
     def serializeMessage(){
-       def generator = new groovy.json.JsonGenerator.Options()
+       def generator = JsonGenerator.Options()
                          .disableUnicodeEscaping()
                          .build()
 
