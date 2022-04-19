@@ -12,11 +12,8 @@ class message {
     Boolean disable_notification
     int reply_to_message_id
 
-    def serializeMessage(){
-        import groovy.json.JsonGenerator
-        import groovy.json.JsonGenerator.Converter
-
-        
+    def serializeMessage(){        
+      echo JsonGenerator.toJson(this)
      return JsonOutput.prettyPrint(JsonOutput.toJson(this))
     }
 }
