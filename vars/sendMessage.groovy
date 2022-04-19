@@ -4,7 +4,7 @@ import ru.telegramNotify.ioc.ContextRegistry
 import ru.telegramNotify.botManager
 import ru.telegramNotify.message
 
-def call(String text, long chat_id = Long.valueOf(env.TELEGRAM_CHAT), String parse_mode = "MarkdownV2") {
+def call(String text, long chat_id = Long.valueOf(env.TELEGRAM_CHAT), String parse_mode = "Markdown") {
        ContextRegistry.registerDefaultContext(this)
       def message = new message(
             chat_id: chat_id,
