@@ -13,6 +13,7 @@ class message {
 
     def serializeMessage(){
         def json = JsonOutput.toJson(this)
+        json = json.getBytes("UTF-8")
         json = JsonOutput.prettyPrint(json)
         return json
     }
